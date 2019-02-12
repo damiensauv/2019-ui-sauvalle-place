@@ -3,27 +3,27 @@ type page =
   | Register
   | Score;
 
-type state = {route: page};
-
-type action =
-  | NewPage(page);
-
 module Config = {
   type route = page;
-  let url_to_route = (url: ReasonReact.Router.url) =>
+  let mapUrlToRoute = (url: ReasonReact.Router.url) =>
     switch (url.path) {
     | ["login"] => Login
     | ["register"] => Register
     | ["score"] => Score
     | _ => Register
     };
-  let mapUrlToRoute = route =>
+  let route_to_url = route =>
     switch (route) {
     | Login => "/"
     | Register => "/register"
     | Score => "/score"
     };
 };
+
+type state = {route: page};
+
+type action =
+  | NewPage(page);
 
 let component = ReasonReact.reducerComponent("Routeur");
 
