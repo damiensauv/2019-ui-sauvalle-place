@@ -19,6 +19,7 @@ let make = _children => {
   },
   render: self => {
     <div>
+      <a href="login"> {ReasonReact.string("Login")} </a>
       <div> {ReasonReact.string("Register")} </div>
       <div> {ReasonReact.string("mail : ")} <input name="mail" /> </div>
       <div> {ReasonReact.string("password : ")} <input name="password" /> </div>
